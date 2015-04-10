@@ -4,13 +4,11 @@ from sklearn.pipeline import Pipeline
 from sklearn.base import BaseEstimator
  
 class Classifier(BaseEstimator):
-
     def __init__(self):
-
         self.clf = Pipeline([
             ('imputer', Imputer(strategy='most_frequent')),
             ('rf', AdaBoostClassifier(
-                base_estimator=RandomForestClassifier(max_depth=37, n_estimators=20),
+                base_estimator=RandomForestClassifier(max_depth=5, n_estimators=10),
                 n_estimators=10)
             )
         ])
