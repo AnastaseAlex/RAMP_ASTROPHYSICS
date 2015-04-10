@@ -41,11 +41,12 @@ if __name__ == '__main__':
         fe.fit(X_valid_train_dict, y_valid_train)
         X_valid_train_array = fe.transform(X_valid_train_dict)
         X_valid_test_array = fe.transform(X_valid_test_dict)
-
-        #clf = classifier.Classifier()
-        #clf_c = CalibratedClassifierCV(clf, cv=2, method='isotonic')
-        #clf_c.fit(X_valid_train_array, y_valid_train)
-        #y_valid_pred = clf_c.predict(X_valid_test_array)
-        #y_valid_proba = clf_c.predict_proba(X_valid_test_array)
-        ##print y_valid_proba
-        #print 'accuracy = ', accuracy_score(y_valid_pred, y_valid_test)
+        
+        clf = classifier.Classifier()
+        clf_c = CalibratedClassifierCV(clf, cv=2, method='isotonic')
+        clf_c.fit(X_valid_train_array, y_valid_train)
+        y_valid_pred = clf_c.predict(X_valid_test_array)
+        y_valid_proba = clf_c.predict_proba(X_valid_test_array)
+        #print y_valid_proba
+        print 'accuracy = ', accuracy_score(y_valid_pred, y_valid_test)
+       

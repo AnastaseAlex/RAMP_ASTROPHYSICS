@@ -76,7 +76,7 @@ class FeatureExtractor(object):
                                     for i in range(num_gp_bins)])
 
                 try:
-                    gp = GaussianProcess(regr='constant', theta0=1./1.0, thetaL=1./50., thetaU=1./0.1, 
+                    gp = GaussianProcess(regr='constant', theta0=1./1.0, thetaL=1./80., thetaU=1./0.05, 
                                  corr=squared_exponential_periodic_1D,
                                  nugget=y_sigma*y_sigma)
                     gp.fit(x_train[:, np.newaxis], y_train[:, np.newaxis])
