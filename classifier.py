@@ -5,6 +5,7 @@ from sklearn.base import BaseEstimator
  
 class Classifier(BaseEstimator):
     def __init__(self):
+
         self.clf = Pipeline([
             ('imputer', Imputer(strategy='most_frequent')),
             ('rf', AdaBoostClassifier(
